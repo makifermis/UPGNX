@@ -106,5 +106,4 @@ public class Login_StepDefinitions {
         Assert.assertTrue(loginPage.password.getAttribute("type").equals("password"));
     }
 
-
 }
