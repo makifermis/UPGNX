@@ -32,9 +32,9 @@ public class Hooks {
     public void tearDownScenario(Scenario scenario) {
 
         // scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
-        if (scenario.isFailed()){
-            byte [] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png", scenario.getName());
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName());
         }
 
         //BrowserUtils.sleep(5);

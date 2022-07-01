@@ -9,7 +9,7 @@ public class ConfigurationReader {
     //1- Create the object of Properties
     private static Properties properties = new Properties();
 
-    static{
+    static {
         try {
             //2- We need to open the file in java memory: FileInputStream
 
@@ -29,7 +29,7 @@ public class ConfigurationReader {
 
     }
 
-    public static String getProperty(String keyword){
+    public static String getProperty(String keyword) {
         return properties.getProperty(keyword);
     }
 

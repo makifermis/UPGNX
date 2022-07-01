@@ -17,7 +17,8 @@ public class Driver {
 Creating a private constructor, so we are closing
 access to the object of this class from outside the class
  */
-    private Driver(){}
+    private Driver() {
+    }
 
     /*
     We make WebDriver private, because we want to close access from outside the class.
@@ -30,9 +31,9 @@ access to the object of this class from outside the class
     /*
     Create a re-usable utility method which will return same driver instance when we call it
      */
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
-        if (driverPool.get() == null){
+        if (driverPool.get() == null) {
 
             /*
             We read our browserType from configuration.properties.
@@ -45,7 +46,7 @@ access to the object of this class from outside the class
                 Depending on the browserType that will be return from configuration.properties file
                 switch statement will determine the case, and open the matching browser
             */
-            switch (browserType){
+            switch (browserType) {
                 case "chrome":
 
                     WebDriverManager.chromedriver().setup();
@@ -63,10 +64,10 @@ access to the object of this class from outside the class
                     // assign your grid server address
                     String gridAdress = "44.208.31.149"; // put your own Linux grid IP here
                     try {
-                        URL url = new URL("http://"+gridAdress+":4444/wd/hub");
+                        URL url = new URL("http://" + gridAdress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
-                        driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
+                        driverPool.set(new RemoteWebDriver(url, desiredCapabilities));
                         driverPool.get().manage().window().maximize();
                         driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     } catch (MalformedURLException e) {
@@ -83,8 +84,8 @@ access to the object of this class from outside the class
     /*
     This method will make sure our driver value is always null after using quit() method
      */
-    public static void closeDriver(){
-        if (driverPool.get() != null){
+    public static void closeDriver() {
+        if (driverPool.get() != null) {
             driverPool.get().quit(); // this line will terminate the existing session. value will not even be null
             driverPool.remove();
         }
