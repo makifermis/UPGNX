@@ -85,7 +85,7 @@ Feature: Upgenix app login feature
     Given Salesmanager-Posmanager clicks on the reset password link
     Then Salesmanager-posmanager sees "Reset password" in the title
 
-  @UPGNX-323
+  @UPGNzX-323
   Scenario:Verification of seeing the password in bullet signs by default
     Then Salesmanager-Posmanager sees the bullet signs while writing the password
 

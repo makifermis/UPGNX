@@ -7,10 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class Login_StepDefinitions {
 
@@ -81,14 +79,15 @@ public class Login_StepDefinitions {
     @Then("Please fill out this field message should be displayed")
     public void please_fill_out_this_field_message_should_be_displayed() {
 
-        Assert.assertTrue(loginPage.email.getAttribute("validationMessage").equalsIgnoreCase("Please fill out this field."));
+
+        Assert.assertTrue(loginPage.email.getAttribute("required").equals("true") && loginPage.email.getAttribute("validationMessage").equals("Please fill out this field."));
 
     }
 
-    @Given("Salesmanager-Posmanager clicks on the reset password link")
+    /*@Given("Salesmanager-Posmanager clicks on the reset password link")
     public void salesmanager_posmanager_clicks_on_the_reset_password_link() {
         loginPage.resetPassword.click();
-    }
+    }*/
 
     @Then("Salesmanager-posmanager sees {string} in the title")
     public void salesmanager_posmanager_sees_in_the_title(String string) {
